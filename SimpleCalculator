@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+public class SimpleCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Get the first number
+        System.out.print("Enter the first number: ");
+        double firstNumber = scanner.nextDouble();
+        
+        // Get the second number
+        System.out.print("Enter the second number: ");
+        double secondNumber = scanner.nextDouble();
+        
+        // Clear the input line
+        scanner.nextLine();
+        
+        // Get the operation
+        System.out.print("Enter operation (+, -, *, /): ");
+        String operation = scanner.nextLine();
+        
+        // Calculate the result
+        double result = 0;
+        boolean isValidOperation = true;
+        
+        switch (operation) {
+            case "+":
+                result = firstNumber + secondNumber;
+                break;
+                
+            case "-":
+                result = firstNumber - secondNumber;
+                break;
+                
+            case "*":
+                result = firstNumber * secondNumber;
+                break;
+                
+            case "/":
+                if (secondNumber != 0) {
+                    result = firstNumber / secondNumber;
+                } else {
+                    System.out.println("Error: Division by zero.");
+                    isValidOperation = false;
+                }
+                break;
+                
+            default:
+                System.out.println("Error: Invalid operation.");
+                isValidOperation = false;
+        }
+        
+        // Display the result
+        if (isValidOperation) {
+            System.out.println("Result: " + result);
+        }
+        
+        scanner.close();
+    }
+}
